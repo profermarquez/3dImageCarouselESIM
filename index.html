@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+  <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    ESIM
+  </nav>
+  <div class="row">
+        <div class="col-sm-12 p-3">
+            <div class="slideshow">
+              <button class="left-button">&#8592;</button>
+              <button class="right-button">&#8594;</button>
+            </div>
+            <div class="row container text-center"> 
+                <div class="text-light m-3"><h1>Luces y Sombras, Ana Rindfleisch y Mangini Maitena</h1></div>
+            </div>
+        </div>
+        
+        <div class="col-sm-12 p-3">
+          <div class="slideshow2">
+            <button class="left-button2">&#8592;</button>
+            <button class="right-button2">&#8594;</button>
+        </div>
+        <div class="row container text-center"> 
+          <div class="text-light m-3"><h1>Pequeños Mundos, Pesoa Santiago</h1></div>
+        </div>
+        </div>
+        
+        <div class="col-sm-12 p-3">
+          <div class="slideshow3">
+            <button class="left-button3">&#8592;</button>
+            <button class="right-button3">&#8594;</button>
+        </div>
+        <div class="row container text-center"> 
+          <div class="text-light m-3"><h1>Senderos Misioneros, Facundo Gregorio</h1></div>
+        </div>
+        </div>
+  </div>
+  <div class="container text-center m-5">
+    <div class="row align-items-start">
+      <div class="col">
+        ESIM 2024
+      </div>
+    </div>
+</div>
+</body>
+
+
+<script src="src/slideshow.js"></script>
+<style>
+  body {
+    background-color: black;
+  }
+
+  /* Asegúrate de que cada carrusel tenga un contenedor claro */
+  .slideshow, .slideshow2, .slideshow3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    opacity: 1;
+    position: relative; /* Aseguramos que las imágenes se posicionen dentro de su contenedor */
+    height: 300px; /* Ajusta la altura según necesites */
+    margin: 20px 0; /* Espaciado entre carruseles */
+  }
+
+  .slide {
+    height: auto;
+    width: auto;
+    max-height: 80%;
+    max-width: 60%;
+    position: absolute;
+    transition: 0.5s;
+    display: none; /* Ocultar todas las imágenes inicialmente */
+  }
+
+  .left-button,
+  .right-button,.left-button2,
+  .right-button2,.left-button3,
+  .right-button3 {
+    position: absolute;
+    height: 50px;
+    opacity: 60%;
+    z-index: 1;
+    border-radius: 10px;
+    transition: ease-in-out;
+    transition-duration: 0.3s;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+
+  .left-button, .left-button2,.left-button3{
+    left: 20px;
+  }
+
+  .right-button,.right-button2 ,.right-button3  {
+    right: 20px;
+  }
+
+  .left-button:hover,
+  .right-button:hover,.left-button:hover2,
+  .right-button:hover2,.left-button:hover3,
+  .right-button:hover3 {
+    opacity: 1;
+  }
+
+  /* Ajuste para que las flechas de control no se solapen con las imágenes */
+  .left-button, .right-button,.left-button2, .right-button2,.left-button3, .right-button3 {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+  let slideshow_class1 = ".slideshow"; // classname of slideshow element 1
+  let images1 = [
+    'imagenes/LucesySombras.jpg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion3.jpeg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion4.jpg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion2.jpeg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion11.jpg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion1.jpeg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginieinterpretacion8.jpeg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion10.jpg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion5.jpg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion6.jpg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion7.jpeg',
+    'imagenes/LucesysobrasCoatiMono/AnaRindfleischyMaitenaManginireinterpretacion9.jpeg'
+  ];
+  let starting_image_index1 = 1;
+
+  let slides1 = new Slideshow(
+    images1,
+    starting_image_index1,
+    slideshow_class1,
+    "alt-text",
+    3, // Number of images to load on the side
+    1 // Number of images to display on the side
+  );
+
+  document.querySelector(".left-button").addEventListener(
+    "click",
+    slides1.previous_slide.bind(slides1)
+  );
+
+  document.querySelector(".right-button").addEventListener(
+    "click",
+    slides1.next_slide.bind(slides1)
+  );
+</script>
+
+<script>
+  let slideshow_class2 = ".slideshow2"; // classname of slideshow element 2
+  let images2 = [
+    'imagenes/PequeñosMundos.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream1.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream2.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream3UsandolaherramientaVisual.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream4Buscandoconcepto.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream5BuscandoConceptoUsandoherramientavisual.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream6Buscandoconcepto.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream7BuscandoConceptoUsando herramienta visual.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/DeepDreamGenerator/SantiagoPesoaconDeepDream8BuscandoconceptoUsandoherramientadeimagen.jpg',
+    'imagenes/SantiagoPesoaPequeñosMundos/MetaIA/SantiagoPesoaconMetaIA.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/MetaIA/SantiagoPesoaconMetaIA2.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/MetaIA/SantiagoPesoaMetaIA3.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/MetaIA/SantiagoPesoaMetaIA4.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/MetaIA/SantiagoPesoaMetaIA5.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/MetaIA/SantiagoPesoaMetaIA6.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/Bing/SantiagoPesoaconBing1.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/Bing/SantiagoPesoaconBing2UsandoprompdeDeepDream.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/Bing/SantiagoPesoaconBing3.jpeg',
+    'imagenes/SantiagoPesoaPequeñosMundos/Bing/SantiagoPesoaconBing4.jpeg'
+  ];
+  let starting_image_index2 = 1;
+
+  let slides2 = new Slideshow(
+    images2,
+    starting_image_index2,
+    slideshow_class2,
+    "alt-text",
+    3, // Number of images to load on the side
+    1 // Number of images to display on the side
+  );
+
+  document.querySelector(".left-button2").addEventListener(
+    "click",
+    slides2.previous_slide.bind(slides2)
+  );
+
+  document.querySelector(".right-button2").addEventListener(
+    "click",
+    slides2.next_slide.bind(slides2)
+  );
+</script>
+
+<script>
+  let slideshow_class3 = ".slideshow3"; // classname of slideshow element 3
+  let images3 =  [
+    'imagenes/SenderosMisioneros.jpg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio1.png',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio10.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio11.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio12.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio2.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio3.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio4.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio5.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio6.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio7.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio8.jpeg',
+    'imagenes/FacundoGregorioSenderosMisioneros/FacundoGregorio9.jpeg'
+  ];
+  let starting_image_index3 = 1;
+
+  let slides3 = new Slideshow(
+    images3,
+    starting_image_index3,
+    slideshow_class3,
+    "alt-text",
+    3, // Number of images to load on the side
+    1 // Number of images to display on the side
+  );
+
+  document.querySelector(".left-button3").addEventListener(
+    "click",
+    slides3.previous_slide.bind(slides3)
+  );
+
+  document.querySelector(".right-button3").addEventListener(
+    "click",
+    slides3.next_slide.bind(slides3)
+  );
+</script>
+
+
+</html>
